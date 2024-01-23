@@ -28,12 +28,20 @@ function App() {
 
       const fData = objectToFormData(finalData);
 
-      axios.post('https://api-staging.turbotaxgames.com/submit_user_data', fData).then((res) => {
+      try {
+         const res: any = axios.post(
+            'https://api-staging.turbotaxgames.com/submit_user_data',
+            fData,
+         );
          if (res.data.success) {
             setFirstName(finalData.player_first_name);
             setLoading(false);
          }
-      });
+      } catch (error) {
+         console.log('Something Went Wrong');
+         setLoading(false);
+         window.alert('Something Went Wrong, Please Try Again Later!');
+      }
    };
 
    return (
@@ -42,7 +50,7 @@ function App() {
             <>
                <div className='text-center'>
                   <h1 className='text-2xl mb-6'>#MakeYourMovesCount</h1>
-                  <p className='text-sm mb-3'>Please fill out the details below to get started.</p>
+                  <p className=' mb-3'>Please fill out the details below to get started.</p>
                </div>
 
                <form
@@ -54,7 +62,7 @@ function App() {
                      <input
                         type='text'
                         id='fName'
-                        className='px-2 py-3 rounded-[4px] text-black'
+                        className='py-[14px] px-5 rounded-[4px] text-black text-xl'
                         placeholder='First Name'
                         {...register('player_first_name', { required: 'First Name Is Required' })}
                      />
@@ -64,7 +72,7 @@ function App() {
                      <input
                         type='text'
                         id='lName'
-                        className='px-2 py-3 rounded-[4px] text-black'
+                        className='py-[14px] px-5 rounded-[4px] text-black text-xl'
                         placeholder='Last Name'
                         {...register('player_last_name', { required: 'Last Name Is Required' })}
                      />
@@ -74,7 +82,7 @@ function App() {
                      <input
                         type='email'
                         id='email'
-                        className='px-2 py-3 rounded-[4px] text-black'
+                        className='py-[14px] px-5 rounded-[4px] text-black text-xl'
                         placeholder='Email'
                         {...register('player_email', {
                            required: 'Email Is Required',
@@ -88,7 +96,7 @@ function App() {
                      <div className='relative w-full'>
                         <select
                            id='turboBefore'
-                           className='px-2 py-3 rounded-[4px] text-black appearance-none w-full'
+                           className='py-[14px] px-5 rounded-[4px] text-black text-xl appearance-none w-full'
                            {...register('used_intuit_before', {
                               required: 'This Field Is Required',
                            })}
@@ -99,32 +107,32 @@ function App() {
                         <img
                            src={selectionArrow}
                            alt=''
-                           className='absolute right-[1rem] top-[1rem] w-5'
+                           className='absolute right-[1.2rem] top-[1.3rem] w-6'
                         />
                      </div>
                   </div>
 
                   <div className='flex flex-col gap-1'>
-                     <label htmlFor='mobile'>Phone Number</label>
+                     <label htmlFor='mobile'>Phone number</label>
                      <input
                         type='text'
                         id='phone'
-                        className='px-2 py-3 rounded-[4px] text-black'
+                        className='py-[14px] px-5 rounded-[4px] text-black text-xl'
                         placeholder='Phone Number'
                         {...register('mobile', { required: 'Phone Number Is Required' })}
                      />
                   </div>
-                  <div className='flex w-full justify-center items-center gap-2 '>
+                  <div className='flex w-full justify-center items-center gap-3 '>
                      <input
                         type='checkbox'
                         id='tos'
-                        className='w-11 h-11 rounded-[4px] text-black'
+                        className='w-[70px] h-[70px] rounded-[4px] text-black'
                         {...register('tos_agree', { required: 'This Field Is Required' })}
                      />
 
-                     <p className='text-sm'>
+                     <p>
                         I agree to the{' '}
-                        <span onClick={openModal} className='underline'>
+                        <span onClick={openModal} className='underline cursor-pointer'>
                            Terms of Service
                         </span>{' '}
                         & I agree to receive marketing email communication.
@@ -136,7 +144,7 @@ function App() {
                         <button
                            type='button'
                            disabled
-                           className='bg-black p-5 rounded-md text-center'
+                           className='text-2xl bg-black p-[24px] rounded-md text-center'
                         >
                            Loading....
                         </button>
@@ -145,10 +153,10 @@ function App() {
                      <>
                         <button
                            type='submit'
-                           className='bg-black p-5 rounded-md flex justify-between items-center'
+                           className='text-2xl bg-black p-[24px] rounded-md flex justify-between items-center'
                         >
                            Get Started
-                           <img src={Arrow} />
+                           <img src={Arrow} className='w-[60px]' />
                         </button>
                      </>
                   )}

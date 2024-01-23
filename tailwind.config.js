@@ -7,7 +7,9 @@ export default {
          red: '#DB334D',
       },
       fontFamily: {
-         inter: ['Inter', 'sans-serif'],
+         'avenir-regular': ['AvenirRegular', 'sans-serif'],
+         'avenir-bold': ['AvenirBold', 'sans-serif'],
+         'avenir-heavy': ['AvenirHeavy', 'sans-serif'],
       },
       extend: {},
    },

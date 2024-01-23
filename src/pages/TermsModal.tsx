@@ -29,21 +29,21 @@ export default function TermsModal({ isOpen, setIsOpen }: TermsModalProps) {
                         <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-lg  text-[#fff] p-6 text-left align-middle shadow-xl transition-all bg-red min-h-[80vh] border-[8px] border-black'>
                            <Dialog.Title
                               as='h4'
-                              className='text-md leading-6 text-gray-900 flex items-center justify-between mb-2'
+                              className='text-lg leading-6 text-gray-900 flex items-center justify-between mb-2'
                            >
                               TurboTax terms of use
                               <img onClick={closeModal} src={close} alt='' className='w-7' />
                            </Dialog.Title>
                            <div className='text-black flex flex-col gap-2'>
                               <div className='mt-2'>
-                                 <p className='xs:text-sm sm:text-md md:text-lg text-gray-500'>
+                                 <p className='xs:text-sm sm:text-lg text-gray-500'>
                                     Be sure to read the Website Terms of Use below, as they cover
                                     the terms and conditions that apply to your visits to, use of,
                                     and navigation of this website (the "Website," or "Site").
                                  </p>
                               </div>
                               <div className='mt-2'>
-                                 <p className='xs:text-sm sm:text-md md:text-lg text-gray-500'>
+                                 <p className='xs:text-sm sm:text-lg text-gray-500'>
                                     NOTE: Your use of the TurboTax Online or TurboTax Desktop
                                     offerings are covered by the TurboTax Online Terms of Service,
                                     other related terms of service, or the TurboTax Desktop End User
@@ -53,7 +53,7 @@ export default function TermsModal({ isOpen, setIsOpen }: TermsModalProps) {
                               </div>
 
                               <div className='mt-2'>
-                                 <p className='xs:text-sm sm:text-md md:text-lg text-gray-500'>
+                                 <p className='xs:text-sm sm:text-lg text-gray-500'>
                                     Intuit Consumer Group LLC ("Intuit") may change these Website
                                     Terms of Use from time to time. By continuing to use the Site
                                     following such modifications, you agree to be bound by such
@@ -61,7 +61,7 @@ export default function TermsModal({ isOpen, setIsOpen }: TermsModalProps) {
                                  </p>
                               </div>
                               <div className='mt-2'>
-                                 <p className='xs:text-sm sm:text-md md:text-lg text-gray-500'>
+                                 <p className='xs:text-sm sm:text-lg text-gray-500'>
                                     General Terms and Conditions. In consideration of use of the
                                     Site,
                                  </p>
