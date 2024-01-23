@@ -19,7 +19,7 @@ function App() {
 
    const { register, handleSubmit } = useForm();
 
-   const onSubmit = (data: any) => {
+   const onSubmit = async (data: any) => {
       setLoading(true);
       const finalData = {
          ...data,
@@ -29,7 +29,7 @@ function App() {
       const fData = objectToFormData(finalData);
 
       try {
-         const res: any = axios.post(
+         const res: any = await axios.post(
             'https://api-staging.turbotaxgames.com/submit_user_data',
             fData,
          );
@@ -38,9 +38,10 @@ function App() {
             setLoading(false);
          }
       } catch (error) {
-         console.log('Something Went Wrong');
-         setLoading(false);
-         window.alert('Something Went Wrong, Please Try Again Later!');
+         if (error) {
+            setLoading(false);
+            window.alert('Something Went Wrong, Please Try Again Later!');
+         }
       }
    };
 
