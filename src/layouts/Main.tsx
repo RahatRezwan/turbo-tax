@@ -3,9 +3,11 @@ import Header from '../components/Header';
 
 const Main = () => {
    return (
-      <div>
+      <div className='bg-red min-h-[100vh]'>
          <Header />
-         <Outlet />
+         <div className='min-h-[calc(100vh-5.25rem)]'>
+            <Outlet />
+         </div>
       </div>
    );
 };

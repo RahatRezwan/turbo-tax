@@ -15,7 +15,7 @@ export default function TermsModal({ isOpen, setIsOpen }: TermsModalProps) {
       <>
          <Transition appear show={isOpen} as={Fragment}>
             <Dialog as='div' className='relative z-10' onClose={closeModal}>
-               <div className='fixed inset-0 overflow-y-auto mt-[6rem] sm:mx-4 md: mx-8 shadow-lg'>
+               <div className='fixed inset-0 overflow-y-auto sm:mx-4 md: mx-8 shadow-lg h-full flex justify-center items-center'>
                   <div className='flex items-center justify-center p-1 text-center '>
                      <Transition.Child
                         as={Fragment}
@@ -26,13 +26,18 @@ export default function TermsModal({ isOpen, setIsOpen }: TermsModalProps) {
                         leaveFrom='opacity-100 scale-100'
                         leaveTo='opacity-0 scale-95'
                      >
-                        <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-lg  text-[#fff] p-6 text-left align-middle shadow-xl transition-all bg-red min-h-[80vh] border-[8px] border-black'>
+                        <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-lg  text-[#fff] p-6 text-left align-middle shadow-xl transition-all bg-red min-h-[82vh] mt-[5rem] md:mt-[3rem] border-[8px] border-black'>
                            <Dialog.Title
                               as='h4'
                               className='text-lg leading-6 text-gray-900 flex items-center justify-between mb-2'
                            >
                               TurboTax terms of use
-                              <img onClick={closeModal} src={close} alt='' className='w-7' />
+                              <img
+                                 onClick={closeModal}
+                                 src={close}
+                                 alt=''
+                                 className='w-7 cursor-pointer'
+                              />
                            </Dialog.Title>
                            <div className='text-black flex flex-col gap-2'>
                               <div className='mt-2'>
